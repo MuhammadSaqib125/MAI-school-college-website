@@ -19,6 +19,12 @@ export default function ContactPage() {
     setIsSubmitting(true);
     try {
       await submitComplaint(formData);
+
+      // Redirect to WhatsApp
+      const whatsappNumber = "923315277499";
+      const message = `*New Contact/Inquiry* 📩\n\n*Type:* ${formData.type}\n*Name:* ${formData.name}\n*Contact Info:* ${formData.contactInfo}\n\n*Message:*\n${formData.message}`;
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
+
       setSuccess(true);
       setFormData({ name: "", contactInfo: "", type: "General Inquiry", message: "" });
       setTimeout(() => setSuccess(false), 5000);
@@ -58,8 +64,8 @@ export default function ContactPage() {
                   <Phone className="text-school-black w-6 h-6" />
                 </div>
                 <div className="ml-6">
-                  <h3 className="text-xl font-bold text-school-black mb-1">Phone Number</h3>
-                  <p className="text-gray-600">+1 (555) 123-4567<br />+1 (555) 987-6543</p>
+                  <h3 className="text-xl font-bold text-school-black mb-1">Phone</h3>
+                  <p className="text-gray-600">0312-9058858<br />0331-5277499<br />Office: 051-3334070</p>
                 </div>
               </div>
               <div className="flex items-start group">
@@ -67,8 +73,8 @@ export default function ContactPage() {
                   <Mail className="text-school-black w-6 h-6" />
                 </div>
                 <div className="ml-6">
-                  <h3 className="text-xl font-bold text-school-black mb-1">Email Address</h3>
-                  <p className="text-gray-600">info@school.edu<br />admissions@school.edu</p>
+                  <h3 className="text-xl font-bold text-school-black mb-1">Email</h3>
+                  <p className="text-gray-600">maicollegesss@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start group">

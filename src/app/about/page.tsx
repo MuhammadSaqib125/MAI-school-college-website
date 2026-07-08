@@ -2,13 +2,14 @@ import Image from "next/image";
 
 export default function AboutPage() {
   const galleryImages = [
-    { src: "/images/IMG-20260705-WA0014.jpg", alt: "Campus view" },
-    { src: "/images/IMG-20260705-WA0015.jpg", alt: "Students in class" },
-    { src: "/images/IMG-20260705-WA0016.jpg", alt: "School events" },
-    { src: "/images/IMG-20260705-WA0018.jpg", alt: "Library" },
+    { src: "/images/WhatsApp Image 2026-07-07 at 12.42.27.jpeg", alt: "Campus view" },
+    { src: "/images/WhatsApp Image 2026-07-07 at 12.42.27 (1).jpeg", alt: "Students in class" },
+    { src: "/images/WhatsApp Image 2026-07-07 at 12.42.28.jpeg", alt: "School events" },
+    { src: "/images/WhatsApp Image 2026-07-07 at 12.42.28 (1).jpeg", alt: "Library" },
+    { src: "/images/WhatsApp Image 2026-07-07 at 12.42.28 (2).jpeg", alt: "Campus activity" },
+    { src: "/images/WhatsApp Image 2026-07-08 at 11.11.22.jpeg", alt: "New campus view" },
     { src: "/images/IMG-20260705-WA0019.jpg", alt: "Art and culture" },
     { src: "/images/IMG-20260705-WA0020.jpg", alt: "Sports" },
-    { src: "/images/IMG-20260705-WA0021.jpg", alt: "Auditorium" },
     { src: "/images/IMG-20260705-WA0024.jpg", alt: "Campus building" },
     { src: "/images/IMG-20260705-WA0025.jpg", alt: "Learning" },
     { src: "/images/IMG-20260705-WA0026.jpg", alt: "Graduation" },

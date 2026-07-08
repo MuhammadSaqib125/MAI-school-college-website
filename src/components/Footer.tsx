@@ -35,8 +35,9 @@ export default function Footer() {
               <li>Near PSO Pump, Bismillah Market</li>
               <li>MAI College Sar Suba Shah</li>
               <li>Opposite to UBL bank</li>
-              <li className="pt-2">info@school.edu</li>
-              <li>+1 (555) 123-4567</li>
+              <li className="pt-2">maicollegesss@gmail.com</li>
+              <li>0312-9058858, 0331-5277499</li>
+              <li>Office: 051-3334070</li>
             </ul>
           </div>
         </div>

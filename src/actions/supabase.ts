@@ -1,6 +1,32 @@
 "use server";
 import { supabase } from "@/lib/supabase";
 
+async function sendEmailNotification(subject: string, message: string) {
+  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+  if (!accessKey) {
+    console.error("WEB3FORMS_ACCESS_KEY is not defined");
+    return;
+  }
+
+  try {
+    await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: accessKey,
+        subject: subject,
+        message: message,
+        from_name: "MAI School & College Website",
+      }),
+    });
+  } catch (error) {
+    console.error("Error sending email notification:", error);
+  }
+}
+
 export async function getActiveAnnouncements() {
   const { data, error } = await supabase
     .from("moving_announcements")
@@ -51,6 +77,7 @@ export async function submitAdmission(formData: any) {
   if (error) {
     throw new Error(error.message);
   }
+
   return { success: true };
 }
 
@@ -70,5 +97,6 @@ export async function submitComplaint(formData: any) {
   if (error) {
     throw new Error(error.message);
   }
+
   return { success: true };
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getUpcomingEvents } from "@/actions/supabase";
-import { Calendar, Users, Award, Clock, Microscope, Monitor, Trophy, Presentation } from "lucide-react";
+import { Calendar, Users, Award, Clock, Microscope, Monitor, Trophy, Presentation, ShieldCheck, CheckCircle, Globe, Mic, Laptop, Compass, BookOpen } from "lucide-react";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -48,24 +48,71 @@ export default async function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center border-b-4 border-school-yellow hover:-translate-y-2 transition-transform duration-300">
-              <Users className="w-12 h-12 text-school-yellow mx-auto mb-4" />
-              <h3 className="text-4xl font-bold text-school-black mb-2">15:1</h3>
-              <p className="text-school-gray font-medium">Student-Teacher Ratio</p>
+              <ShieldCheck className="w-12 h-12 text-school-yellow mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-school-black mb-2 mt-2">Affiliated With</h3>
+              <p className="text-school-gray font-bold text-lg">BISE RWP</p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center border-b-4 border-school-yellow hover:-translate-y-2 transition-transform duration-300">
-              <Award className="w-12 h-12 text-school-yellow mx-auto mb-4" />
+              <CheckCircle className="w-12 h-12 text-school-yellow mx-auto mb-4" />
               <h3 className="text-4xl font-bold text-school-black mb-2">100%</h3>
-              <p className="text-school-gray font-medium">College Acceptance</p>
+              <p className="text-school-gray font-medium">Acceptance</p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center border-b-4 border-school-yellow hover:-translate-y-2 transition-transform duration-300">
               <Clock className="w-12 h-12 text-school-yellow mx-auto mb-4" />
-              <h3 className="text-4xl font-bold text-school-black mb-2">1995</h3>
-              <p className="text-school-gray font-medium">Year Established</p>
+              <h3 className="text-4xl font-bold text-school-black mb-2">2020</h3>
+              <p className="text-school-gray font-medium">Established Since</p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center border-b-4 border-school-yellow hover:-translate-y-2 transition-transform duration-300">
               <Calendar className="w-12 h-12 text-school-yellow mx-auto mb-4" />
               <h3 className="text-4xl font-bold text-school-black mb-2">40+</h3>
               <p className="text-school-gray font-medium">Extracurriculars</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Accreditations & Leadership Section */}
+      <section className="py-16 bg-school-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Leadership Info */}
+            <div className="space-y-6">
+              <h2 className="text-3xl font-extrabold text-school-yellow mb-2">Leadership & Vision</h2>
+              <div className="w-20 h-1 bg-white mb-6"></div>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Under the dedicated leadership of our Principal, <span className="text-white font-bold text-xl block mt-2 mb-2">Wajiha Naveed Chaudhary</span> MAI School & College has rapidly grown since its establishment in 2020. Our mission is to provide an uncompromising standard of education and foster the leaders of tomorrow.
+              </p>
+            </div>
+
+            {/* Accreditations Info */}
+            <div className="bg-white/10 p-8 rounded-3xl border border-white/20 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <Award className="w-8 h-8 text-school-yellow" /> Official Accreditations
+              </h3>
+              <ul className="space-y-4 text-gray-200">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-school-yellow shrink-0 mt-0.5" />
+                  <span><strong>Approved from:</strong> Education Department Govt of Punjab</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-school-yellow shrink-0 mt-0.5" />
+                  <span><strong>Affiliation:</strong> Rawalpindi Board (BISE RWP)</span>
+                </li>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 pt-6 border-t border-white/20">
+                  <div>
+                    <span className="block text-xs text-school-yellow uppercase tracking-wider font-bold mb-1">EMIS Code</span>
+                    <span className="text-xl font-mono text-white">373722350</span>
+                  </div>
+                  <div>
+                    <span className="block text-xs text-school-yellow uppercase tracking-wider font-bold mb-1">Matric Level Code</span>
+                    <span className="text-xl font-mono text-white">107199</span>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <span className="block text-xs text-school-yellow uppercase tracking-wider font-bold mb-1">Intermediate Level Code</span>
+                    <span className="text-xl font-mono text-white">207775</span>
+                  </div>
+                </div>
+              </ul>
             </div>
           </div>
         </div>
@@ -112,6 +159,55 @@ export default async function Home() {
               </div>
               <h3 className="text-xl font-bold text-school-black mb-3">Digital Classrooms</h3>
               <p className="text-gray-500 text-sm">Modern tech-integrated learning environments that foster interactive education and digital literacy.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Professional Courses Section */}
+      <section className="py-20 bg-school-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-school-black mb-4">Professional Courses</h2>
+            <div className="w-24 h-1 bg-school-yellow mx-auto"></div>
+            <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">We offer specialized programs to elevate your career and personal growth.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-school-yellow hover:-translate-y-2 transition-transform duration-300">
+              <Globe className="w-10 h-10 text-school-yellow mb-4" />
+              <h3 className="text-2xl font-bold text-school-black mb-2">IELTS Preparation</h3>
+              <p className="text-gray-600">Comprehensive training to help you achieve your desired band score for study or work abroad.</p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-school-yellow hover:-translate-y-2 transition-transform duration-300">
+              <Mic className="w-10 h-10 text-school-yellow mb-4" />
+              <h3 className="text-2xl font-bold text-school-black mb-2">Spoken English</h3>
+              <p className="text-gray-600">Build confidence and fluency in English communication with interactive speaking sessions.</p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-school-yellow hover:-translate-y-2 transition-transform duration-300">
+              <Laptop className="w-10 h-10 text-school-yellow mb-4" />
+              <h3 className="text-2xl font-bold text-school-black mb-2">Computer Courses</h3>
+              <p className="text-gray-600">From basic IT skills to advanced programming, tailored for modern digital requirements.</p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-school-yellow hover:-translate-y-2 transition-transform duration-300">
+              <Award className="w-10 h-10 text-school-yellow mb-4" />
+              <h3 className="text-2xl font-bold text-school-black mb-2">A1 Language Cert</h3>
+              <p className="text-gray-600">Official preparatory classes for A1 certification, ensuring strong foundational language skills.</p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-school-yellow hover:-translate-y-2 transition-transform duration-300">
+              <Compass className="w-10 h-10 text-school-yellow mb-4" />
+              <h3 className="text-2xl font-bold text-school-black mb-2">IELTS Life Skills</h3>
+              <p className="text-gray-600">Specialized preparation for the IELTS Life Skills test, focusing on essential speaking and listening skills.</p>
+            </div>
+            
+            <div className="bg-school-black p-8 rounded-2xl shadow-lg text-white flex flex-col justify-center items-center text-center hover:bg-gray-800 transition-colors duration-300 border-l-4 border-school-yellow">
+              <BookOpen className="w-10 h-10 text-school-yellow mb-4" />
+              <h3 className="text-2xl font-bold text-school-yellow mb-2">And Much More...</h3>
+              <p className="text-gray-300">Contact us to explore our full range of professional certifications.</p>
             </div>
           </div>
         </div>

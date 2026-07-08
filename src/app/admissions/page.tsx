@@ -32,7 +32,7 @@ export default function AdmissionsPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (step < 4) {
+    if (step < 3) {
       setStep(step + 1);
       return;
     }
@@ -40,6 +40,12 @@ export default function AdmissionsPage() {
     setIsSubmitting(true);
     try {
       await submitAdmission(formData);
+      
+      // Redirect to WhatsApp
+      const whatsappNumber = "923315277499";
+      const message = `*New Admission Application* 🎓\n\n*Student Name:* ${formData.studentName}\n*Father Name:* ${formData.fatherName}\n*Grade Applied:* ${formData.grade}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email}\n*Previous School:* ${formData.previousSchool || 'N/A'}`;
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
+      
       setIsSuccess(true);
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -80,7 +86,7 @@ export default function AdmissionsPage() {
         {/* Progress Bar */}
         <div className="mb-10 relative">
           <div className="flex justify-between items-center relative z-10">
-            {[1, 2, 3, 4].map((i) => (
+            {[1, 2, 3].map((i) => (
               <div key={i} className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-colors duration-300 shadow-sm ${
                 step >= i ? "bg-school-yellow text-school-black border-2 border-school-yellow" : "bg-white text-gray-400 border-2 border-gray-300"
               }`}>
@@ -89,7 +95,7 @@ export default function AdmissionsPage() {
             ))}
           </div>
           <div className="absolute top-1/2 left-0 right-0 h-1.5 bg-gray-300 -z-10 -translate-y-1/2 rounded-full overflow-hidden">
-            <div className="h-full bg-school-yellow rounded-full transition-all duration-300" style={{ width: `${((step - 1) / 3) * 100}%` }}></div>
+            <div className="h-full bg-school-yellow rounded-full transition-all duration-300" style={{ width: `${((step - 1) / 2) * 100}%` }}></div>
           </div>
         </div>
 
@@ -168,45 +174,11 @@ export default function AdmissionsPage() {
             </div>
           )}
 
-          {/* Step 3: Document Uploads */}
+          {/* Step 3: Review & Submit */}
           {step === 3 && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-bold text-school-black mb-1">Step 3: Document Uploads</h2>
-                <p className="text-gray-500 mb-6 text-sm">Please provide required documentation. Files will be routed to secure storage.</p>
-              </div>
-              
-              <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-school-yellow transition-colors bg-gray-50 cursor-pointer">
-                <UploadCloud className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <p className="font-semibold text-school-black mb-1">Student Passport-Size Photo *</p>
-                <p className="text-sm text-gray-500">Click to upload or drag and drop</p>
-                <input type="file" className="hidden" id="photoUpload" accept="image/*" />
-                <label htmlFor="photoUpload" className="mt-4 inline-block px-6 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-50 cursor-pointer shadow-sm">Select File</label>
-              </div>
-
-              <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-school-yellow transition-colors bg-gray-50 cursor-pointer">
-                <UploadCloud className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <p className="font-semibold text-school-black mb-1">Birth Certificate / B-Form *</p>
-                <p className="text-sm text-gray-500">PDF, JPG, or PNG</p>
-                <input type="file" className="hidden" id="birthUpload" />
-                <label htmlFor="birthUpload" className="mt-4 inline-block px-6 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-50 cursor-pointer shadow-sm">Select File</label>
-              </div>
-
-              <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-school-yellow transition-colors bg-gray-50 cursor-pointer">
-                <UploadCloud className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <p className="font-semibold text-school-black mb-1">Previous Report Card (Optional)</p>
-                <p className="text-sm text-gray-500">PDF, JPG, or PNG</p>
-                <input type="file" className="hidden" id="reportUpload" />
-                <label htmlFor="reportUpload" className="mt-4 inline-block px-6 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-50 cursor-pointer shadow-sm">Select File</label>
-              </div>
-            </div>
-          )}
-
-          {/* Step 4: Review & Submit */}
-          {step === 4 && (
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-bold text-school-black mb-1">Step 4: Review & Submit</h2>
+                <h2 className="text-2xl font-bold text-school-black mb-1">Step 3: Review & Submit</h2>
                 <p className="text-gray-500 mb-6 text-sm">Please verify your information before submitting.</p>
               </div>
               
@@ -270,12 +242,12 @@ export default function AdmissionsPage() {
               type="submit" 
               disabled={isSubmitting}
               className={`flex items-center px-8 py-3 rounded-xl font-bold transition-all shadow-md ${
-                step === 4 
+                step === 3 
                   ? "bg-school-yellow text-school-black hover:bg-yellow-400 w-full md:w-auto text-lg py-4" 
                   : "bg-school-black text-white hover:bg-gray-800"
               }`}
             >
-              {isSubmitting ? "Processing..." : step === 4 ? "Submit Application" : (
+              {isSubmitting ? "Processing..." : step === 3 ? "Submit Application" : (
                 <>Next Step <ChevronRight className="w-5 h-5 ml-2" /></>
               )}
             </button>
