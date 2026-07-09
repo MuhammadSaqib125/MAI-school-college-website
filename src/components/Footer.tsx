@@ -15,7 +15,8 @@ export default function Footer() {
                 <span className="text-xs font-bold text-school-yellow leading-tight uppercase tracking-widest">School & College</span>
               </div>
             </div>
-            <p className="text-gray-400">
+            <p className="text-gray-400 mt-2">
+              <strong>Mohammadan Anglo Islamic Higher Secondary School</strong><br/>
               Fostering excellence and shaping the leaders of tomorrow with modern education and strong values.
             </p>
           </div>
@@ -42,7 +43,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} MAI School & College. All rights reserved.
+          &copy; {new Date().getFullYear()} Mohammadan Anglo Islamic Higher Secondary School. All rights reserved.
         </div>
       </div>
 

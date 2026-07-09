@@ -23,7 +23,10 @@ export default async function Home() {
             priority 
           />
         </div>
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+          <div className="inline-block mb-8 border border-school-yellow/30 bg-black/40 backdrop-blur-md px-6 md:px-8 py-2.5 rounded-full shadow-2xl">
+            <h2 className="text-school-yellow uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold text-xs md:text-sm m-0">Mohammadan Anglo Islamic Higher Secondary School</h2>
+          </div>
           <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-lg">
             Empowering the Next Generation
           </h1>
