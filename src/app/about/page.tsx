@@ -36,7 +36,7 @@ export default function AboutPage() {
               to discover their unique potential. We believe in holistic education that goes beyond 
               textbooks, preparing our students for the real challenges of the future."
             </p>
-            <p className="font-bold text-school-black text-xl">- Dr. Sarah Jenkins, Principal</p>
+            <p className="font-bold text-school-black text-xl">- Wajiha Naveed Chaudhary, Principal</p>
           </div>
           <div className="bg-school-black text-white p-10 rounded-3xl shadow-xl flex flex-col justify-center border-b-8 border-school-yellow">
             <h2 className="text-3xl font-bold text-school-yellow mb-6">Our Mission & Vision</h2>
