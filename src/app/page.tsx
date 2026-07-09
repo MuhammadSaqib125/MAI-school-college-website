@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getUpcomingEvents } from "@/actions/supabase";
-import { Calendar, Users, Award, Clock, Microscope, Monitor, Trophy, Presentation, ShieldCheck, CheckCircle, Globe, Mic, Laptop, Compass, BookOpen } from "lucide-react";
+import { Calendar, Users, Award, Clock, Microscope, Monitor, Trophy, Presentation, ShieldCheck, CheckCircle, Globe, Mic, Laptop, Compass, BookOpen, Palette } from "lucide-react";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -159,6 +159,49 @@ export default async function Home() {
               </div>
               <h3 className="text-xl font-bold text-school-black mb-3">Digital Classrooms</h3>
               <p className="text-gray-500 text-sm">Modern tech-integrated learning environments that foster interactive education and digital literacy.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Academic Programs Section */}
+      <section className="py-20 bg-school-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-school-yellow mb-4">Academic Programs</h2>
+            <div className="w-24 h-1 bg-white mx-auto"></div>
+            <p className="mt-4 text-gray-300 max-w-2xl mx-auto text-lg">Comprehensive curriculum designed to build a strong foundation and specialized expertise.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+            <div className="bg-white/10 p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm">
+              <BookOpen className="w-10 h-10 text-school-yellow mb-4" />
+              <h3 className="text-2xl font-bold text-white mb-2">PG to 9th</h3>
+              <p className="text-gray-300">Building a solid educational foundation from Play Group through early high school.</p>
+            </div>
+            
+            <div className="bg-white/10 p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm">
+              <Palette className="w-10 h-10 text-school-yellow mb-4" />
+              <h3 className="text-2xl font-bold text-white mb-2">FA</h3>
+              <p className="text-gray-300">Faculty of Arts program for students interested in humanities and social sciences.</p>
+            </div>
+            
+            <div className="bg-white/10 p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm">
+              <Microscope className="w-10 h-10 text-school-yellow mb-4" />
+              <h3 className="text-2xl font-bold text-white mb-2">FSc</h3>
+              <p className="text-gray-300">Pre-Medical and Pre-Engineering tracks with state-of-the-art laboratory facilities.</p>
+            </div>
+            
+            <div className="bg-white/10 p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm">
+              <Monitor className="w-10 h-10 text-school-yellow mb-4" />
+              <h3 className="text-2xl font-bold text-white mb-2">ICS</h3>
+              <p className="text-gray-300">Intermediate in Computer Science, bridging modern tech education with core academics.</p>
+            </div>
+            
+            <div className="bg-white/10 p-8 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm">
+              <Presentation className="w-10 h-10 text-school-yellow mb-4" />
+              <h3 className="text-2xl font-bold text-white mb-2">I.Com</h3>
+              <p className="text-gray-300">Intermediate in Commerce, laying the groundwork for future business leaders and accountants.</p>
             </div>
           </div>
         </div>
