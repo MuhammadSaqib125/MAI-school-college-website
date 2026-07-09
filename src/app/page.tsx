@@ -16,7 +16,7 @@ export default async function Home() {
         {/* Hero Image */}
         <div className="absolute inset-0 z-[-1]">
           <Image 
-            src="/images/ChatGPT Image Jul 5, 2026, 03_33_01 PM.png" 
+            src="/images/hero.png" 
             alt="School Campus" 
             fill 
             className="object-cover" 
