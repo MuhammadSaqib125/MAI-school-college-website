@@ -14,6 +14,7 @@ export default function AdmissionsPage() {
     studentName: "",
     dob: "",
     grade: "",
+    customCourse: "",
     previousSchool: "",
     // Step 2
     fatherName: "",
@@ -43,7 +44,8 @@ export default function AdmissionsPage() {
       
       // Redirect to WhatsApp
       const whatsappNumber = "923315277499";
-      const message = `*New Admission Application* 🎓\n\n*Student Name:* ${formData.studentName}\n*Father Name:* ${formData.fatherName}\n*Grade Applied:* ${formData.grade}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email}\n*Previous School:* ${formData.previousSchool || 'N/A'}`;
+      const appliedFor = formData.grade === "Other Course" ? formData.customCourse : formData.grade;
+      const message = `*New Admission Application* 🎓\n\n*Student Name:* ${formData.studentName}\n*Father Name:* ${formData.fatherName}\n*Applying For:* ${appliedFor}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email}\n*Previous School:* ${formData.previousSchool || 'N/A'}`;
       window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
       
       setIsSuccess(true);
@@ -118,25 +120,43 @@ export default function AdmissionsPage() {
                   <input required type="date" value={formData.dob} onChange={e => updateForm("dob", e.target.value)} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-school-yellow focus:border-transparent outline-none transition-all" />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Grade Applying For *</label>
-                  <select required value={formData.grade} onChange={e => updateForm("grade", e.target.value)} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-school-yellow focus:border-transparent outline-none transition-all bg-white">
-                    <option value="">Select Class</option>
-                    <option value="Play Group">Play Group</option>
-                    <option value="Nursery">Nursery</option>
-                    <option value="Prep">Prep</option>
-                    <option value="Class 1">Class 1</option>
-                    <option value="Class 2">Class 2</option>
-                    <option value="Class 3">Class 3</option>
-                    <option value="Class 4">Class 4</option>
-                    <option value="Class 5">Class 5</option>
-                    <option value="Class 6">Class 6</option>
-                    <option value="Class 7">Class 7</option>
-                    <option value="Class 8">Class 8</option>
-                    <option value="Class 9">Class 9</option>
-                    <option value="Class 10">Class 10</option>
-                    <option value="Class 11">Class 11</option>
-                    <option value="Class 12">Class 12</option>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Class / Course Applying For *</label>
+                  <select required value={formData.grade} onChange={e => updateForm("grade", e.target.value)} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-school-yellow focus:border-transparent outline-none transition-all bg-white mb-4">
+                    <option value="">Select Program</option>
+                    <optgroup label="Academic Classes">
+                      <option value="Play Group">Play Group</option>
+                      <option value="Nursery">Nursery</option>
+                      <option value="Prep">Prep</option>
+                      <option value="Class 1">Class 1</option>
+                      <option value="Class 2">Class 2</option>
+                      <option value="Class 3">Class 3</option>
+                      <option value="Class 4">Class 4</option>
+                      <option value="Class 5">Class 5</option>
+                      <option value="Class 6">Class 6</option>
+                      <option value="Class 7">Class 7</option>
+                      <option value="Class 8">Class 8</option>
+                      <option value="Class 9">Class 9</option>
+                      <option value="Class 10">Class 10</option>
+                      <option value="FA">FA</option>
+                      <option value="FSc">FSc</option>
+                      <option value="ICS">ICS</option>
+                      <option value="I.Com">I.Com</option>
+                    </optgroup>
+                    <optgroup label="Professional Courses">
+                      <option value="IELTS Preparation">IELTS Preparation</option>
+                      <option value="IELTS Life Skills">IELTS Life Skills</option>
+                      <option value="Spoken English">Spoken English</option>
+                      <option value="Computer Courses">Computer Courses</option>
+                      <option value="A1 Language Cert">A1 Language Cert</option>
+                      <option value="Other Course">Other Course (Type below)</option>
+                    </optgroup>
                   </select>
+                  {formData.grade === "Other Course" && (
+                    <div className="mt-2 animate-in fade-in slide-in-from-top-2">
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Please specify the course *</label>
+                      <input required type="text" placeholder="e.g. Graphic Design" value={formData.customCourse} onChange={e => updateForm("customCourse", e.target.value)} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-school-yellow focus:border-transparent outline-none transition-all" />
+                    </div>
+                  )}
                 </div>
               </div>
               <div>
@@ -193,8 +213,10 @@ export default function AdmissionsPage() {
                     <div className="font-medium text-school-black">{formData.dob || "-"}</div>
                   </div>
                   <div>
-                    <div className="text-sm text-gray-500">Grade Applying For</div>
-                    <div className="font-medium text-school-black">{formData.grade || "-"}</div>
+                    <div className="text-sm text-gray-500">Applying For</div>
+                    <div className="font-medium text-school-black">
+                      {formData.grade === "Other Course" ? formData.customCourse || "Other Course" : (formData.grade || "-")}
+                    </div>
                   </div>
                   <div>
                     <div className="text-sm text-gray-500">Previous School</div>
