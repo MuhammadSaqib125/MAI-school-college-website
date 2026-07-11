@@ -45,7 +45,7 @@ export default function AdmissionsPage() {
       // Redirect to WhatsApp
       const whatsappNumber = "923315277499";
       const appliedFor = formData.grade === "Other Course" ? formData.customCourse : formData.grade;
-      const message = `*New Admission Application* 🎓\n\n*Student Name:* ${formData.studentName}\n*Father Name:* ${formData.fatherName}\n*Applying For:* ${appliedFor}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email}\n*Previous School:* ${formData.previousSchool || 'N/A'}`;
+      const message = `*New Admission Application* 🎓\n\n*Student Name:* ${formData.studentName}\n*Father Name:* ${formData.fatherName}\n*Applying For:* ${appliedFor}\n*Phone:* ${formData.phone}\n*Email:* ${formData.email || 'N/A'}\n*Previous School:* ${formData.previousSchool || 'N/A'}`;
       window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
       
       setIsSuccess(true);
@@ -183,8 +183,8 @@ export default function AdmissionsPage() {
                   <input required type="tel" value={formData.phone} onChange={e => updateForm("phone", e.target.value)} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-school-yellow focus:border-transparent outline-none transition-all" />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
-                  <input required type="email" value={formData.email} onChange={e => updateForm("email", e.target.value)} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-school-yellow focus:border-transparent outline-none transition-all" />
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address (Optional)</label>
+                  <input type="email" value={formData.email} onChange={e => updateForm("email", e.target.value)} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-school-yellow focus:border-transparent outline-none transition-all" />
                 </div>
               </div>
               <div>
